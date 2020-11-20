@@ -1,0 +1,10 @@
+---
+- hosts: kubernetes-master-nodes
+  become: yes
+  tasks:
+  - name: copy config file for deploying exquisapp
+    copy: src={{ item.src }} dest={{ item.dest }}
+    with_items:
+    - { src: 'files/exquisapp_svc.yaml', dest: '/exquisapp/exquisapp_svc.yaml', force: 'yes' }
+    - { src: 'files/exquisapp.yaml', dest: '/exquisapp/exquisapp.yaml', force: 'yes' }
+    

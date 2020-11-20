@@ -1,0 +1,5 @@
+---
+- import_playbook: playbooks/tasks/makeDirectories.yml
+- import_playbook: playbooks/tasks/copyConfigFiles.yml
+- import_playbook: playbooks/tasks/deployment.yml
+

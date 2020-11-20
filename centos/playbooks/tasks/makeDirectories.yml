@@ -1,0 +1,11 @@
+---
+- hosts: kubernetes-master-nodes
+  become: yes
+  tasks:
+  - name: Creates the exquisapp dir if not exist
+    file: 
+      path: /exquisapp
+      state: directory
+      owner: exquisapp
+      group: exquisapp
+    become: yes

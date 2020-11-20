@@ -1,0 +1,17 @@
+---
+- hosts: kubernetes-master-nodes
+  become: yes
+  tasks:
+  - name: Creating the exquisapp namespace.
+    shell: |
+      kubectl create ns exquisapp | true
+
+    become: yes  
+
+  - name: Creating the pod and service.
+    shell: |
+      cd /exquisapp
+      kubectl apply -f exquisapp.yaml
+      kubectl apply -f exquisapp_svc.yaml
+
+    become: yes    
